@@ -1,0 +1,70 @@
+﻿if has('vim_starting')
+	" Required:
+	set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+NeoBundle 'scrooloose/nerdtree' " Display editing files
+NeoBundle 'Townk/vim-autoclose' " Auto Close (s
+NeoBundle 'thinca/vim-quickrun' " Run command
+NeoBundle 'scrooloose/syntastic' " Syntax checker
+NeoBundle 'tpope/vim-fugitive' " Git
+NeoBundle 'kannokanno/previm' " Preview Markdown
+NeoBundle "nathanaelkane/vim-indent-guides" " Show indent
+
+" Display indent
+"""""""""""""""""""""""""""""""""
+set ts=4 sw=4 noet
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+let g:indent_guides_guide_size=1
+autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd	guibg=#444433	ctermbg=darkgray
+autocmd VimEnter,ColorScheme * :hi IndentGuidesEven	guibg=#333344	ctermbg=lightgray
+
+" Nerd tree
+"""""""""""""""""""""""""""""""""
+let g:NERDTreeQuitOnOpen=1
+
+" Auto complete
+"""""""""""""""""""""""""""""""""
+if has('lua') && v:version >= 703 && has('patch885')
+	NeoBundleLazy "Shougo/neocomplete.vim", {
+		\ "autoload": {
+		\   "insert": 1,
+		\ }}
+	let g:neocomplete#enable_at_startup = 1
+	let s:hooks = neobundle#get_hooks("neocomplete.vim")
+	function! s:hooks.on_source(bundle)
+		let g:acp_enableAtStartup = 0
+		let g:neocomplet#enable_smart_case = 1
+		" NeoCompleteを有効化
+		" NeoCompleteEnable
+	endfunction
+else
+	NeoBundleLazy "Shougo/neocomplcache.vim", {
+		\ "autoload": {
+		\   "insert": 1,
+		\ }}
+	let g:neocomplcache_enable_at_startup = 1
+	let s:hooks = neobundle#get_hooks("neocomplcache.vim")
+	function! s:hooks.on_source(bundle)
+		let g:acp_enableAtStartup = 0
+		let g:neocomplcache_enable_smart_case = 1
+		" NeoComplCacheを有効化
+		" NeoComplCacheEnable 
+	endfunction
+endif
+
+"""""""""""""""""""""""""""""""""
+" Final settings
+"""""""""""""""""""""""""""""""""
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
+

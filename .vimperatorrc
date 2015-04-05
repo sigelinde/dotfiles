@@ -1,0 +1,28 @@
+" 入力欄に自動フォーカスしない
+set focuscontent
+
+" ビジュアルベルを表示しない
+set visualbell
+highlight Bell display:none
+
+" :oなどでの補完候補をサーチエンジン、履歴に限定
+set complete=sl
+
+" Hintモードでアルファベット使用
+set hintchars=hjklasdfgyuiopqwertnmzxcv
+
+" ツールバーはアドオンとタブのみ表示
+set gui=addons,nobookmarks,nomenu,nonavigation,tas
+
+" commandモードでIMEオフ
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+" 検索を明示的に設定
+noremap s :open<Space>google<Space>
+noremap ,s :tabopen<Space>google<Space>
+
+" ショートカット
+qmark m https://mail.google.com/
+qmark k https://keep.google.com/
+qmark t https://tweetdeck.twitter.com/
+qmark z https://zaim.net/home

@@ -1,0 +1,46 @@
+﻿" keymap
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <Leader>r :QuickRun 
+
+inoremap jj <Esc> "二回j連打でESC
+
+" neoComplete settings
+""""""""""""""""""""""""""""""""""""""""
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	" return neocomplcache#smart_close_popup() . "\<CR>"
+	" For no inserting <CR> key.
+	return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+" AutoComplPop like behavior.
+let g:neocomplcache_enable_auto_select = 1
+
+
+augroup MyAutoCmd
+	autocmd!
+	autocmd MyAutoCmd QuickfixCmdPost make,grep,grepadd,vimgrep copen	" make, grep などのコマンド後に自動的にQuickFixを開く
+	autocmd MyAutoCmd FileType help,qf nnoremap <buffer> q <C-w>c	" QuickFixおよびHelpでは q でバッファを閉じる
+augroup END
+
+" im_control
+""""""""""""""""""""""""""""""""""""""""""
+if has('gui_running')
+  " 「日本語入力固定モード」の動作モード
+  let IM_CtrlMode = 4
+  " GVimで<C-^>が使える場合の「日本語入力固定モード」切替キー
+  inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+else
+  " 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
+  let IM_CtrlMode = 0
+endif

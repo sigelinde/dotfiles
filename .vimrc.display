@@ -1,0 +1,50 @@
+﻿if has('vim_starting')
+	if &compatible
+		set nocompatible
+	endif
+	
+	set runtimepath+=~/dotfiles/.vim
+endif
+
+set t_Co=256
+colorscheme badwolf
+
+" Window Size
+set lines=40
+set columns=150
+
+" 基本表示
+syntax on	" シンタックスハイライト
+set number	" 行番号を表示
+set ruler	" 右下に表示される行・列の番号を表示する
+
+" 括弧表示
+set showmatch	" 対応括弧をハイライト表示する
+set matchtime=3	" 対応括弧の表示秒数を3秒にする
+
+" 特殊文字表示
+set wrap	" ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
+set textwidth=0	" 入力されているテキストの最大幅を無効にする
+set shiftround	" インデントをshiftwidthの倍数に丸める
+set showcmd	" コマンドを画面最下部に表示する
+set listchars=tab:^\ ,trail:-,extends:>,precedes:<,nbsp:%,eol:$	" 不可視文字を表示
+set list	" 不可視文字を表示
+
+""""""""""""""""""""""""""""""
+"全角スペースを表示
+""""""""""""""""""""""""""""""
+function! ZenkakuSpace()
+	highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
+endfunction
+
+if has('syntax')
+	augroup ZenkakuSpace
+		autocmd!
+		" ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
+		autocmd ColorScheme       * call ZenkakuSpace()
+		" 全角スペースのハイライト指定
+		autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+		autocmd VimEnter,WinEnter * match ZenkakuSpace '\%u3000'
+	augroup END
+	call ZenkakuSpace()
+endif
