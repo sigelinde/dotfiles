@@ -128,6 +128,8 @@ function! MyMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+set laststatus=2
+
 """""""""""""""""""""""""""""""""
 " Final settings
 """""""""""""""""""""""""""""""""
