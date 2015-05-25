@@ -101,7 +101,6 @@ prompt_git() {
     printf " ${style_branch}[${git_info}]"
 }
  
- 
 # Build the prompt
 PS1="${style_user}\u" # Username
 PS1+="${style_chars}@" # @
@@ -111,4 +110,15 @@ PS1+="${style_path}\w" # Working directory
 PS1+="\$(prompt_git)" # Git details
 #PS1+="\n" # Newline
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
+
+# Setup pyenv
+pyenv_root="${HOME}/.pyenv"
+if [ -e "$pyenv_root" ]; then
+	echo "setting pyenv"
+	export PYENV_ROOT=$pyenv_root
+	if [ -d "$PYENV_ROOT" ]; then
+		export PATH=${PYENV_ROOT}/bin:$PATH
+		eval "$(pyenv init -)"
+	fi
+fi
 
