@@ -114,7 +114,6 @@ PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
 # Setup pyenv
 pyenv_root="${HOME}/.pyenv"
 if [ -e "$pyenv_root" ]; then
-	echo "setting pyenv"
 	export PYENV_ROOT=$pyenv_root
 	if [ -d "$PYENV_ROOT" ]; then
 		export PATH=${PYENV_ROOT}/bin:$PATH
