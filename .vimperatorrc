@@ -21,6 +21,10 @@ style! -name=commandline-ime chrome://* #liberator-commandline-command input {im
 noremap s :open<Space>google<Space>
 noremap ,s :tabopen<Space>google<Space>
 
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+inoremap <silent> kk <ESC>
+
 " ショートカット
 qmark m https://mail.google.com/
 qmark k https://keep.google.com/
