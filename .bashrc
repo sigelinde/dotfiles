@@ -121,3 +121,11 @@ if [ -e "$pyenv_root" ]; then
 	fi
 fi
 
+# Setup tmux
+if which tmux >/dev/null 2>/dev/null && [ -z "$TMUX" ] && [[ $- =~ .*i.* ]]; then
+	if tmux list-session >/dev/null 2>/dev/null; then
+		tmux attach
+	else
+		exec tmux
+	fi
+fi
