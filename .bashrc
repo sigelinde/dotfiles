@@ -5,12 +5,12 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Set bash behavior as vim-style
-set -o vi
-
 # User specific aliases and functions
 # Turn off standout; turn off underline
 tput sgr 0 0
+
+# set color mode
+export TERM=xterm-256color
  
 # Base styles and color palette
 # If you want to check color code, run `./testcolor.sh'
