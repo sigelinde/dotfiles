@@ -13,7 +13,6 @@ tput sgr 0 0
 export TERM=xterm-256color
  
 # Base styles and color palette
-# If you want to check color code, run `./testcolor.sh'
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 BLACK=$(tput setaf 0)
@@ -110,6 +109,10 @@ PS1+="${style_path}\w" # Working directory
 PS1+="\$(prompt_git)" # Git details
 #PS1+="\n" # Newline
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
+
+# Set dircolors
+eval `dircolors ~/.colorrc`
+alias ls='ls --color=auto'
 
 # Setup pyenv
 pyenv_root="${HOME}/.pyenv"
