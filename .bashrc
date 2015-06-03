@@ -111,7 +111,7 @@ PS1+="\$(prompt_git)" # Git details
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
 
 # Set dircolors
-eval `dircolors ~/.colorrc`
+eval `dircolors ~/dotfiles/.colorrc`
 alias ls='ls --color=auto'
 
 # Setup pyenv
