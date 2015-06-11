@@ -25,8 +25,10 @@ noremap ,s :tabopen<Space>google<Space>
 inoremap <silent> jj <ESC>
 
 " ショートカット
-qmark m https://mail.google.com/
+qmark m https://inbox.google.com/
 qmark k https://keep.google.com/
 qmark t https://tweetdeck.twitter.com/
 qmark z https://zaim.net/home
 qmark b about:mybookmarks
+qmark f https://feedly.com/
+
