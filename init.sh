@@ -12,5 +12,6 @@ git submodule update
 pyenv_root="${HOME}/.pyenv"
 if [ ! -e $pyenv_root ]; then
 	git clone git://github.com/yyuu/pyenv.git $pyenv_root
+	git clone git://github.com/yyuu/pyenv-virtualenv.git $pyenv_root/plugins/pyenv-virtualenv
 fi
 
