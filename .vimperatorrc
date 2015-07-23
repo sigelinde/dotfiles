@@ -28,6 +28,7 @@ inoremap <silent> jj <ESC>
 " ショートカット
 qmark m https://inbox.google.com/
 qmark k https://keep.google.com/
+qmark c https://www.google.com/calendar
 qmark t https://tweetdeck.twitter.com/
 qmark z https://zaim.net/home
 qmark b about:mybookmarks
