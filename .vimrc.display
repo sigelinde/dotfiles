@@ -17,6 +17,8 @@ set columns=150
 syntax on	" シンタックスハイライト
 set number	" 行番号を表示
 set ruler	" 右下に表示される行・列の番号を表示する
+autocmd GUIEnter * set transparency=220	" 背景を透過する
+set guioptions-=T	" ツールバーを無効化
 
 " 括弧表示
 set showmatch	" 対応括弧をハイライト表示する
