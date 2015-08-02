@@ -19,8 +19,15 @@ NeoBundle "nathanaelkane/vim-indent-guides" " Show indent
 NeoBundle 'mattn/emmet-vim' " HTML Support
 NeoBundle 'digitaltoad/vim-jade' " Jade syntax
 NeoBundle 'pangloss/vim-javascript' " Javascript syntax
-autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 NeoBundle 'itchyny/lightline.vim'
+
+" QuickRun
+"""""""""""""""""""""""""""""""""
+let g:quickrun_config = {}
+
+" Javascript
+"""""""""""""""""""""""""""""""""
+autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 " Display indent
 """""""""""""""""""""""""""""""""
