@@ -4,7 +4,7 @@ nnoremap <Leader>r :QuickRun
 nnoremap [q :cN<CR>
 nnoremap ]q :cn<CR>
 nnoremap [j :lN<CR>
-nnoremap ]j :ln<CR>
+nnoremap ]j :lne<CR>
 
 inoremap jj <Esc> "二回j連打でESC
 
