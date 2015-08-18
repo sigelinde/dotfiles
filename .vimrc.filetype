@@ -9,3 +9,21 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" Latexmk
+""""""""""""""""""""""""""""""""""
+let g:quickrun_config['tex'] = {
+            \   'command' : 'latexmk',
+            \   'outputter' : 'error',
+            \   'outputter/error/error' : 'quickfix',
+            \   'cmdopt': '-pdfdvi -pv',
+            \   'exec': ['%c %o %s']
+            \ }
+
+" Markdown
+""""""""""""""""""""""""""""""""""
+let g:quickrun_config['markdown'] = {
+			\	'outputter' : 'null',
+			\	'command' : ':Previm',
+			\	'exec' : ['%c']
+			\ }
+
