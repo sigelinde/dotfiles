@@ -1,6 +1,10 @@
 ﻿" keymap
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <Leader>r :QuickRun 
+nnoremap [q :cN<CR>
+nnoremap ]q :cn<CR>
+nnoremap [j :lN<CR>
+nnoremap ]j :ln<CR>
 
 inoremap jj <Esc> "二回j連打でESC
 
