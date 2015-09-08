@@ -140,7 +140,7 @@ set laststatus=2
 " Syntastic
 """""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
