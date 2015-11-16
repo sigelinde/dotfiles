@@ -11,6 +11,7 @@ tput sgr 0 0
 
 # set color mode
 export TERM=xterm-256color
+export EDITOR=/usr/bin/vim
  
 # Base styles and color palette
 BOLD=$(tput bold)
