@@ -30,7 +30,10 @@ qmark m https://inbox.google.com/
 qmark k https://keep.google.com/
 qmark c https://www.google.com/calendar
 qmark t https://tweetdeck.twitter.com/
-qmark z https://zaim.net/home
-qmark b about:mybookmarks
+qmark z https://zaim.net/
 qmark f https://feedly.com/
+qmark g https://github.com/
+qmark b https://bitbucket.org/
+qmark q https://qiita.com/
+qmark h http://b.hatena.ne.jp/
 
