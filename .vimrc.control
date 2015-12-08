@@ -6,7 +6,9 @@ nnoremap ]q :cn<CR>
 nnoremap [j :lN<CR>
 nnoremap ]j :lne<CR>
 
-inoremap jj <Esc> "二回j連打でESC
+" Escキーバインド
+inoremap jj <Esc>
+inoremap <c-j> <Esc>
 
 " neoComplete settings
 """"""""""""""""""""""""""""""""""""""""
@@ -27,9 +29,8 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-" AutoComplPop like behavior.
-let g:neocomplcache_enable_auto_select = 1
-
+" Disable auto select
+let g:neocomplcache_enable_auto_select = 0
 
 augroup MyAutoCmd
 	autocmd!
@@ -43,7 +44,7 @@ if has('gui_running')
   " 「日本語入力固定モード」の動作モード
   let IM_CtrlMode = 4
   " GVimで<C-^>が使える場合の「日本語入力固定モード」切替キー
-  inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
+  "inoremap <silent> <C-j> <C-^><C-r>=IMState('FixMode')<CR>
 else
   " 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
   let IM_CtrlMode = 0
