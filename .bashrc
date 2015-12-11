@@ -4,15 +4,10 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
+if [ -f ~/dotfiles/.rc ]; then
+	. ~/dotfiles/.rc
+fi
 
-# User specific aliases and functions
-# Turn off standout; turn off underline
-tput sgr 0 0
-
-# set color mode
-export TERM=xterm-256color
-export EDITOR=/usr/bin/vim
- 
 # Base styles and color palette
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
