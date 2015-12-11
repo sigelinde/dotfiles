@@ -1,4 +1,9 @@
 # Settings for both bash and zsh
+# LANG
+export LANG=ja_JP.UTF-8
+ 
+# KEYBIND
+bindkey -v
 
 # User specific aliases and functions
 # Turn off standout; turn off underline

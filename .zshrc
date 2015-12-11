@@ -147,8 +147,12 @@ setopt transient_rprompt
 
 # 直前と同じコマンドをヒストリに追加しない
 setopt hist_ignore_dups
+# ヒストリを呼び出してから実行する間に一旦編集
+setopt hist_verify
 # ヒストリを共有
 setopt share_history
+# コマンドラインの先頭がスペースで始まる場合ヒストリに追加しない
+setopt hist_ignore_space
 
 # 補完
 autoload -Uz compinit && compinit
@@ -166,4 +170,5 @@ setopt correct
 setopt mark_dirs
 # 最後のスラッシュを自動的に削除しない
 setopt noautoremoveslash
-
+# 補完ハイライト
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
