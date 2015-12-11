@@ -16,7 +16,7 @@ autoload -Uz is-at-least
 zstyle ':vcs_info:*' enable git svn hg bzr
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f%m"
-zstyle ':vcs_info:*' actionformats '[%b|%a]%m'
+zstyle ':vcs_info:*' actionformats "%F{green}%c%u[%b|%F{red}%a%f]%f%m"
 
 if is-at-least 4.3.10; then
 	# git 用のフォーマット
