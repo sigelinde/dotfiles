@@ -142,3 +142,28 @@ PS1+="${style_chars}:%f" # :
 PS1+="${style_path}%/%f" # Working directory
 PS1+="${style_chars}\$%f " # $ (and reset color)
 
+# カーソルが右まで来たらRPROMPTを消す
+setopt transient_rprompt
+
+# 直前と同じコマンドをヒストリに追加しない
+setopt hist_ignore_dups
+# ヒストリを共有
+setopt share_history
+
+# 補完
+autoload -Uz compinit && compinit
+# 補完候補を一覧表示
+setopt auto_list
+# TAB で順に補完候補を切り替える
+setopt auto_menu
+# 補完候補一覧でファイルの種別をマーク表示
+setopt list_types
+# ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt auto_param_slash
+# スペルチェック
+setopt correct
+# ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
+setopt mark_dirs
+# 最後のスラッシュを自動的に削除しない
+setopt noautoremoveslash
+
