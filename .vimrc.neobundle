@@ -10,7 +10,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
  " Refer to |:NeoBundle-examples|.
  " Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'scrooloose/nerdtree' " Display editing files
-NeoBundle 'Townk/vim-autoclose' " Auto Close (s
 NeoBundle 'thinca/vim-quickrun' " Run command
 NeoBundle 'scrooloose/syntastic' " Syntax checker
 NeoBundle 'tpope/vim-fugitive' " Git
