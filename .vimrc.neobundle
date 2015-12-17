@@ -32,11 +32,11 @@ autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 """""""""""""""""""""""""""""""""
 set ts=4 sw=4 noet
 let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
+let g:indent_guides_start_level=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_guide_size=1
-autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd	guibg=#444433	ctermbg=darkgray
-autocmd VimEnter,ColorScheme * :hi IndentGuidesEven	guibg=#333344	ctermbg=lightgray
+autocmd VimEnter,ColorScheme * :hi IndentGuidesOdd	guibg=#444433	ctermbg=234
+autocmd VimEnter,ColorScheme * :hi IndentGuidesEven	guibg=#333344	ctermbg=235
 
 " Nerd tree
 """""""""""""""""""""""""""""""""
