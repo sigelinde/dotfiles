@@ -30,6 +30,16 @@ if [ -e "$pyenv_root" ]; then
 	fi
 fi
 
+# Setup nave
+nave_root="${HOME}/.nave"
+if [ -e "$nave_root" ]; then
+	alias nave="${nave_root}/nave.sh"
+
+	if [ ${NAVELVL-0} -lt 1 ]; then
+		nave use latest
+	fi
+fi
+
 # Setup tmux
 if which tmux >/dev/null 2>/dev/null && [ -z "$TMUX" ] && [[ $- =~ .*i.* ]]; then
 	if tmux list-session >/dev/null 2>/dev/null; then
