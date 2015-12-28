@@ -18,15 +18,20 @@ NeoBundle "nathanaelkane/vim-indent-guides" " Show indent
 NeoBundle 'mattn/emmet-vim' " HTML Support
 NeoBundle 'digitaltoad/vim-jade' " Jade syntax
 NeoBundle 'pangloss/vim-javascript' " Javascript syntax
-NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'itchyny/lightline.vim' " Cool status line
+NeoBundle 'kchmck/vim-coffee-script' " Coffeescript syntax
+NeoBundle 'majutsushi/tagbar' " Show tags using ctag
 
 " QuickRun
 """""""""""""""""""""""""""""""""
 let g:quickrun_config = {}
 
-" Javascript
+" Coffeescript
 """""""""""""""""""""""""""""""""
-autocmd filetype coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+" set filetype
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" show error
+autocmd QuickFixCmdPost * nested cwindow | redraw! 
 
 " Display indent
 """""""""""""""""""""""""""""""""
@@ -42,6 +47,12 @@ autocmd VimEnter,ColorScheme * :hi IndentGuidesEven	guibg=#333344	ctermbg=235
 """""""""""""""""""""""""""""""""
 let g:NERDTreeQuitOnOpen=1
 
+" Tagbar
+"""""""""""""""""""""""""""""""""
+let g:tagbar_autoshowtag=1
+let g:tagbar_autofocus=1
+let g:tagbar_autoclose = 1
+
 " Auto complete
 """""""""""""""""""""""""""""""""
 if has('lua') && v:version >= 703 && has('patch885')
@@ -53,10 +64,29 @@ if has('lua') && v:version >= 703 && has('patch885')
 	let s:hooks = neobundle#get_hooks("neocomplete.vim")
 	function! s:hooks.on_source(bundle)
 		let g:acp_enableAtStartup = 0
-		let g:neocomplet#enable_smart_case = 1
-		" NeoCompleteを有効化
-		" NeoCompleteEnable
+		let g:neocomplete#enable_smart_case = 1
+
+		" Recommended key-mappings.
+		" <CR>: close popup and save indent.
+		inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+		function! s:my_cr_function()
+			" return neocomplete#smart_close_popup() . "\<CR>"
+			" For no inserting <CR> key.
+			return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+		endfunction
+		" <TAB>: completion.
+		inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+		" <C-h>, <BS>: close popup and delete backword char.
+		inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+		inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+		inoremap <expr><C-y>  neocomplete#close_popup()
+		inoremap <expr><C-e>  neocomplete#cancel_popup()
+		" Close popup by <Space>.
+		" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+		" Disable auto select
+		let g:neocomplete#enable_auto_select = 0
 	endfunction
+
 else
 	NeoBundleLazy "Shougo/neocomplcache.vim", {
 		\ "autoload": {
@@ -67,8 +97,26 @@ else
 	function! s:hooks.on_source(bundle)
 		let g:acp_enableAtStartup = 0
 		let g:neocomplcache_enable_smart_case = 1
-		" NeoComplCacheを有効化
-		" NeoComplCacheEnable 
+
+		" Recommended key-mappings.
+		" <CR>: close popup and save indent.
+		inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+		function! s:my_cr_function()
+			" return neocomplcache#smart_close_popup() . "\<CR>"
+			" For no inserting <CR> key.
+			return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+		endfunction
+		" <TAB>: completion.
+		inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+		" <C-h>, <BS>: close popup and delete backword char.
+		inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+		inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+		inoremap <expr><C-y>  neocomplcache#close_popup()
+		inoremap <expr><C-e>  neocomplcache#cancel_popup()
+		" Close popup by <Space>.
+		" inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+		" Disable auto select
+		let g:neocomplcache_enable_auto_select = 0
 	endfunction
 endif
 

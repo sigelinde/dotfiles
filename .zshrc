@@ -8,6 +8,12 @@ if [ -f ~/dotfiles/.rc ]; then
 	. ~/dotfiles/.rc
 fi
 
+# KEYBIND
+bindkey -e
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+bindkey "^[[3~" delete-char
+
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
