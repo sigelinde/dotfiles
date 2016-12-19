@@ -13,8 +13,10 @@ export TERM=xterm-256color
 export EDITOR=/usr/bin/vim
 
 # Set dircolors
-eval `dircolors ~/dotfiles/.colorrc`
-alias ls='ls --color=auto'
+if [ -x dircolors ]; then
+	eval `dircolors ~/dotfiles/.colorrc`
+	alias ls='ls --color=auto'
+fi
 
 # Setup pyenv
 pyenv_root="${HOME}/.pyenv"
