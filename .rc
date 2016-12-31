@@ -18,6 +18,11 @@ if [ -x dircolors ]; then
 	alias ls='ls --color=auto'
 fi
 
+# Set aliases
+alias tls='tmux list-sessions'
+alias tas='tmux attach -t'
+alias dps='docker ps'
+
 # Setup pyenv
 pyenv_root="${HOME}/.pyenv"
 if [ -e "$pyenv_root" ]; then
