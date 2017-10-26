@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "editor.fontSize": 10,
+    "editor.scrollBeyondLastLine": true,
+    "vim.useSystemClipboard": true,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.minimap.enabled": false
+}

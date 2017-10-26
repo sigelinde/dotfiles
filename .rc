@@ -43,16 +43,6 @@ if [ -e "/usr/local/heroku" ]; then
 	PATH="/usr/local/heroku/bin:$PATH"
 fi
 
-# Setup tmux
-if which tmux >/dev/null 2>/dev/null && [ -z "$TMUX" ] && [[ $- =~ .*i.* ]]; then
-	mkdir -p ~/.tmux
-	if tmux list-session >/dev/null 2>/dev/null; then
-		tmux attach
-	else
-		exec tmux
-	fi
-fi
-
 # Setup home bin path
 if [ -e "~/bin" ]; then
 	PATH="~/bin:$PATH"
