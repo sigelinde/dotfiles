@@ -1,4 +1,15 @@
 [
-    { "key": "shift+h", "command": "workbench.action.terminal.toggleTerminal" },
-    { "key": "ctrl+e", "command": "workbench.action.toggleSidebarVisibility" }
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-cursorLineEnd",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    }
 ]
