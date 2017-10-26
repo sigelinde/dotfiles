@@ -28,7 +28,8 @@ if [ `uname` == 'Darwin' ]; then
 	echo "Installing for mac"
 	pathTocode='~/Library/Application Support/Code/User/'
 fi
-ln -sf ~/dotfiles/vscode/settings.json '$pathTocode'
-ln -sf ~/dotfiles/vscode/keybindings.json '$pathTocode'
-
+if [ -d $pathTocode ]; then
+	ln -sf ~/dotfiles/vscode/settings.json "$pathTocode"
+	ln -sf ~/dotfiles/vscode/keybindings.json "$pathTocode"
+fi
 
