@@ -23,12 +23,13 @@ pushd ~/dotfiles
 popd
 
 # vs code
-pathTocode='~/.config/Code/User/'
 if [ `uname` == 'Darwin' ]; then
-	echo "Installing for mac"
-	pathTocode='~/Library/Application Support/Code/User/'
+	pathTocode=~/Library/Application\ Support/Code/User/
+else 
+	pathTocode=~/.config/Code/User/
 fi
-if [ -d $pathTocode ]; then
+if [ -d "$pathTocode" ]; then
+	echo Installing vs code to $pathTocode
 	ln -sf ~/dotfiles/vscode/settings.json "$pathTocode"
 	ln -sf ~/dotfiles/vscode/keybindings.json "$pathTocode"
 fi
