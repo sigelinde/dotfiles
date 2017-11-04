@@ -1,6 +1,4 @@
 ﻿" keymap
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <Leader>r :QuickRun 
 nnoremap [q :cN<CR>
 nnoremap ]q :cn<CR>
 nnoremap [j :lN<CR>
@@ -28,8 +26,4 @@ else
   " 非GUIの場合(この例では「日本語入力固定モード」を無効化している)
   let IM_CtrlMode = 0
 endif
-
-" Tagbar
-""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><C-t> :TagbarToggle<CR>
 
