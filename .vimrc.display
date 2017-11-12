@@ -9,10 +9,6 @@ endif
 set t_Co=256
 colorscheme badwolf
 
-" Window Size
-set lines=40
-set columns=150
-
 " 基本表示
 syntax on	" シンタックスハイライト
 set number	" 行番号を表示
